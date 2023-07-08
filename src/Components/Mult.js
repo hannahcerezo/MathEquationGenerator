@@ -30,10 +30,14 @@ const Mult = () => {
   return (
     <>
       <div className="mult">
-        <div className="mult eq-generator equation">
+
+        <div className="eq-generator equation">
+          <div classNam="level-select">
+            <button>Easy</button><button>Medium</button><button>Hard</button>
+          </div>
           <DisplayEquation firstVal={mEqVals.firstVal} secondVal={mEqVals.secondVal} operator={'*'} />
           <UserAnswer setUserAns={setUserAns} />
-          <button onClick={handleEnter}>Enter</button>
+          <button className="btn" onClick={handleEnter}>Enter</button>
         </div>
       </div>
     </>

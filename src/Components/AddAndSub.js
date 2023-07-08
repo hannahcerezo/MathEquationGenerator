@@ -50,7 +50,7 @@ const AddAndSub = () => {
           <div className="eq">
             <Equation operator={operator} setEq={eqVals} />
             <UserAnswer setUserAns={setUserAns} /> {isCorrect && '✅'} {isIncorrect && '❌'}
-            <button onClick={handleEnter}>Enter</button>
+            <button className="btn" onClick={handleEnter}>Enter</button>
           </div>
         }
       </div>
