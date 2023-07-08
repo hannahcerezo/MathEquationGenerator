@@ -1,23 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import DisplayEquation from "./DisplayEquation";
 
 const Equation = (props) => {
-
-  // const [firstVal, setFirstVal] = useState(Math.floor(Math.random() * 100));
-  // const [secondVal, setSecondVal] = useState(Math.floor(Math.random() * 100));
-  // let eq = firstVal + props.operator + secondVal;
-
-
-  // const randomNumbers = () => {
-  //   return Math.floor(Math.random() * 100);
-  // }
-
-  // const handleClick = () => {
-  //   setFirstVal(randomNumbers);
-  //   setSecondVal(randomNumbers);
-  // }
-
 
   return (
     <div className="equation">
@@ -27,3 +11,5 @@ const Equation = (props) => {
 }
 
 export default Equation;
+
+// Make this just the component that displays the equation

@@ -1,4 +1,3 @@
-
 import './App.css';
 import SelectOperator from './SelectOperator';
 import { useState } from 'react';
@@ -16,6 +15,7 @@ function App() {
 
   const handleStart = () => {
     setShow(true);
+    document.querySelector('.start').style.display = 'none';
   }
 
   const handleEnter = () => {
@@ -26,8 +26,6 @@ function App() {
       tempEqAns = eqVals.firstVal - eqVals.secondVal;
     }
 
-    console.log(userAns);
-    console.log(tempEqAns);
     if (tempEqAns === userAns) {
 
       setIsCorrect(true);
@@ -49,12 +47,14 @@ function App() {
       </header>
       <div className="eq-generator">
         <SelectOperator selectOperator={setOperator} />
-        <div className="eq">
-          <Equation operator={operator} setEq={eqVals} />
-          <UserAnswer setUserAns={setUserAns} /> {isCorrect && '✅'} {isIncorrect && '❌'}
-          <button onClick={handleEnter}>Enter</button>
-        </div>
-
+        <button className="start" onClick={handleStart}>LETS GO!</button>
+        {show &&
+          <div className="eq">
+            <Equation operator={operator} setEq={eqVals} />
+            <UserAnswer setUserAns={setUserAns} /> {isCorrect && '✅'} {isIncorrect && '❌'}
+            <button onClick={handleEnter}>Enter</button>
+          </div>
+        }
       </div>
     </div>
   );
