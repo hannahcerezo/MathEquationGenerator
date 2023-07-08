@@ -45,10 +45,26 @@ body {
 }
 
 .equation {
-  font-size: calc(40px + 2vmin);
+  font-size: calc(50px + 2vmin);
 }
 
 .user-answer input {
   width: 25%;
-  font-size: calc(40px + 2vmin);
+  font-size: calc(50px + 2vmin);
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li a {
+  color: #000;
+}
+
+ul li a {
+  color: #00a8ff;
+}
+
+ul li a.active {
+  color: #00a8ff;
 }

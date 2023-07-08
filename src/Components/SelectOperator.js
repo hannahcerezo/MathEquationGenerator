@@ -13,8 +13,8 @@ const SelectOperator = (props) => {
         <select name="operator" onChange={selectedOperator}>
           <option value="+">Addition(+)</option>
           <option value="-">Subtraction(-)</option>
-          {/* <option value="*">Multiplication(*)</option>
-          <option value="/">Division(/)</option> */}
+          {/* <option value="*">Multiplication(*)</option> */}
+          {/* <option value="/">Division(/)</option> */}
         </select>
       </label>
     </div>
