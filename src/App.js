@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/MathEquationGenerator/" element={<Home />} />
         <Route path="/add-and-sub" element={<AddAndSub />} />
         <Route path="/mult" element={<Mult />} />
         <Route path="*" element={<NoMatch />} />

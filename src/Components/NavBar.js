@@ -8,7 +8,7 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/MathEquationGenerator/">Home</NavLink>
           </li>
           <li>
             <NavLink to="/add-and-sub">Addition and Subtraction</NavLink>
