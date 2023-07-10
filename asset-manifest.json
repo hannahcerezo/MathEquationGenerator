@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MathEquationGenerator/static/css/main.ebe74ecc.css",
+    "main.js": "/MathEquationGenerator/static/js/main.0f986c6d.js",
+    "index.html": "/MathEquationGenerator/index.html",
+    "main.ebe74ecc.css.map": "/MathEquationGenerator/static/css/main.ebe74ecc.css.map",
+    "main.0f986c6d.js.map": "/MathEquationGenerator/static/js/main.0f986c6d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ebe74ecc.css",
+    "static/js/main.0f986c6d.js"
+  ]
+}
