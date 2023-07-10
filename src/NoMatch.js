@@ -4,7 +4,8 @@ const NoMatch = () => {
 
   return (
     <>
-      404 Error</>
+      404 Error
+    </>
   )
 }
 
