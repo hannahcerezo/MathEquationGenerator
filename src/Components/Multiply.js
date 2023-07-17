@@ -4,7 +4,7 @@ import DisplayEquation from "./DisplayEquation";
 import UserAnswer from "./UserAnswer";
 import Points from "./Points";
 
-const Mult = () => {
+const Multiply = () => {
 
   const easy = 11;
   const medium = 50;
@@ -13,6 +13,19 @@ const Mult = () => {
   const [userAns, setUserAns] = useState();
   const [points, setPoints] = useState(0);
 
+  // high score
+  let currHighScoreMult = localStorage.getItem('highScoreMult') || 0;
+  const [highScore, setHighScore] = useState(Number(currHighScoreMult));
+
+  localStorage.setItem('currentPointsMult', points.toString());
+  let current = Number(localStorage.getItem('currentPointsMult'));
+
+  if (current > highScore) {
+    setHighScore(current);
+    localStorage.setItem('highScoreMult', current.toString());
+  }
+
+
   const handleEnter = () => {
 
     let mTempEqAns = mEqVals.firstVal * mEqVals.secondVal;
@@ -20,17 +33,18 @@ const Mult = () => {
     if (mTempEqAns === userAns) {
 
       setPoints(points + 1);
-      setMEqVals({ firstVal: Math.floor(Math.random() * easy), secondVal: Math.floor(Math.random() * easy) })
-      document.body.style.backgroundColor = 'green'
-      setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
+      setMEqVals({ firstVal: Math.floor(Math.random() * easy), secondVal: Math.floor(Math.random() * easy) });
+      document.body.style.backgroundColor = 'green';
 
     } else {
 
       setPoints(0);
-      document.body.style.backgroundColor = 'red'
-      setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
+      document.body.style.backgroundColor = 'red';
 
     }
+
+    setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
+    document.querySelector('.user-answer-input').value = '';
 
   }
 
@@ -41,7 +55,7 @@ const Mult = () => {
           <div className="level-select">
             {/* <button>Easy</button><button>Medium</button><button>Hard</button> */}
           </div>
-          <Points points={points} />
+          <Points current={points} highScore={highScore} />
           <div className="equation">
             <DisplayEquation firstVal={mEqVals.firstVal} secondVal={mEqVals.secondVal} operator={'*'} />
           </div>
@@ -57,4 +71,4 @@ const Mult = () => {
 }
 
 
-export default Mult;
+export default Multiply;

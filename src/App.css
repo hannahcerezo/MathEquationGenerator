@@ -73,10 +73,11 @@ ul li a.active {
   color: white;
 }
 
-.points p {
+.points {
   position: absolute;
   top: 120px;
-  right: 20px;
+  right: 25px;
+  text-align: right;
 }
 
 .btn {

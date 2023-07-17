@@ -12,9 +12,20 @@ const AddAndSub = () => {
   const [show, setShow] = useState(false);
   const [eqVals, setEqVals] = useState({ firstVal: Math.floor(Math.random() * 100), secondVal: Math.floor(Math.random() * 100) });
   const [userAns, setUserAns] = useState();
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [isIncorrect, setIsIncorrect] = useState(false);
   const [points, setPoints] = useState(0);
+
+  // high score
+  let currHighScoreAS = localStorage.getItem('highScoreAS') || 0;
+  const [highScore, setHighScore] = useState(Number(currHighScoreAS));
+
+  localStorage.setItem('currentPointsAS', points.toString());
+  let current = Number(localStorage.getItem('currentPointsAS'));
+
+  if (current > highScore) {
+    setHighScore(current);
+    localStorage.setItem('highScoreAS', current.toString());
+  }
+
 
   const handleStart = () => {
     setShow(true);
@@ -22,10 +33,6 @@ const AddAndSub = () => {
   }
 
   const handleEnter = () => {
-
-    // if (userAns === 'error') {
-    //   return;
-    // }
 
     let tempEqAns;
 
@@ -37,22 +44,19 @@ const AddAndSub = () => {
 
     if (tempEqAns === userAns) {
 
-      // setIsCorrect(true);
-      // setIsIncorrect(false);
       setPoints(points + 1);
       setEqVals({ firstVal: Math.floor(Math.random() * 100), secondVal: Math.floor(Math.random() * 100) });
-      document.body.style.backgroundColor = 'green'
-      setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
+      document.body.style.backgroundColor = 'green';
 
     } else if (tempEqAns !== userAns) {
 
-      // setIsCorrect(false);
-      // setIsIncorrect(true);
       setPoints(0);
       document.body.style.backgroundColor = 'red';
-      setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
 
     }
+
+    setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
+    document.querySelector('.user-answer-input').value = '';
 
   }
 
@@ -61,7 +65,7 @@ const AddAndSub = () => {
       <div className="eq-generator">
         <SelectOperator selectOperator={setOperator} />
         <button className="start btn" onClick={handleStart}>LETS GO!</button>
-        <Points points={points} />
+        <Points current={points} highScore={highScore} />
         {show &&
           <div className="hide-display">
             <div className="equation">
@@ -70,7 +74,6 @@ const AddAndSub = () => {
             </div>
             <div className="input">
               <UserAnswer setUserAns={setUserAns} />
-              {/* {isCorrect && '✅'} {isIncorrect && '❌'} */}
             </div>
             <button className="btn" onClick={handleEnter}>Enter</button>
           </div>

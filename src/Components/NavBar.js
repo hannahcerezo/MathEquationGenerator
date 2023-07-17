@@ -8,13 +8,13 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/MathEquationGenerator/">Home</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
             <NavLink to="/add-and-sub">Addition and Subtraction</NavLink>
           </li>
           <li>
-            <NavLink to="/mult">Multiplication</NavLink>
+            <NavLink to="/multiply">Multiplication</NavLink>
           </li>
         </ul>
       </nav>

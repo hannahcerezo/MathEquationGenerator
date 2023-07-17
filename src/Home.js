@@ -1,8 +1,13 @@
 import React from "react";
+import LogIn from "./Components/LogIn";
 
 const Home = () => {
 
-  return (<></>)
+  return (
+    <>
+      {/* <LogIn /> */}
+    </>
+  )
 }
 
 export default Home;
