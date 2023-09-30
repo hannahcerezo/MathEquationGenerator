@@ -1,25 +1,25 @@
 import React from "react";
+import AddAndSub from "./AddAndSub";
+import Multiply from "./Multiply";
 import { NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const Select = () => {
+
 
   return (
-    <div className="navigation">
-      <nav>
+    <>
+      <div className="menu">
         <ul>
           <li>
-            <NavLink to="/MathEquationGenerator">Home</NavLink>
-          </li>
-          {/* <li>
             <NavLink to="/add-and-sub">Addition and Subtraction</NavLink>
           </li>
           <li>
             <NavLink to="/multiply">Multiplication</NavLink>
-          </li> */}
+          </li>
         </ul>
-      </nav>
-    </div>
-  )
+      </div>
+    </>
+  );
 }
 
-export default NavBar;
+export default Select;

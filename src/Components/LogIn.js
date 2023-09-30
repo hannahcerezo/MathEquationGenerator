@@ -1,67 +1,64 @@
 import React from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const Joi = require('joi');
 
+async function loginUser(credentials) {
+  return fetch('http://localhost:8080/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  }).then(data => data.json())
+}
 
-const LogIn = () => {
+export default function LogIn({ setToken }) {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
   const [error, setError] = useState('');
   const [validForm, setValidForm] = useState('');
-  let response;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
 
-    const formJson = Object.fromEntries(formData.entries());
+    const token = await loginUser({
+      username, password
+    });
+    setToken(token);
+    console.log(token);
 
-    const JoiSchema = Joi.object({
-      username: Joi.string().alphanum().min(5).max(20).required(),
-      password: Joi.string().alphanum().min(8).max(20).required(),
-    })
+    // const form = e.target;
+    // const formData = new FormData(form);
 
-    try {
+    // const formJson = Object.fromEntries(formData.entries());
 
-      const validateData = await JoiSchema.validate(formJson);
+    // const JoiSchema = Joi.object({
+    //   username: Joi.string().alphanum().min(5).max(20).required(),
+    //   password: Joi.string().alphanum().min(8).max(20).required(),
+    // })
 
-    } catch (err) {
-      console.log(response.error.details[0].message);
-      setError(response.error.details[0].message);
-    }
+    // try {
 
-  }
+    //   const validateData = await JoiSchema.validate(formJson);
 
-  const formValidation = (user) => {
-    // check if the username and password fields are empty or contain invalid characters
+    // } catch (err) {
+    //   console.log(response.error.details[0].message);
+    //   setError(response.error.details[0].message);
+    // }
 
-    const JoiSchema = Joi.object({
-      username: Joi.string().alphanum().min(5).max(20).required(),
-      password: Joi.string().alphanum().min(8).max(20).required(),
-    })
-
-    return JoiSchema.validate(user);
-  }
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  }
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
   }
 
   return (
     <div className="login">
       <h1>Please Login</h1>
       <form method="post" onSubmit={handleSubmit}>
-        <label>Username:</label>
-        <input className="username" name="username" type="text" onChange={handleUsernameChange} />
-        <label>Password</label>
-        <input className="password" name="password" type="text" onChange={handlePasswordChange} />
+        <label>Username:
+          <input className="username" name="username" type="text" onChange={e => setUsername(e.target.value)} /></label>
+        <label>Password:
+          <input className="password" name="password" type="text" onChange={e => setPassword(e.target.value)} /></label>
         <button type="submit">Submit</button>
       </form>
       <div className="validate-msg">
@@ -72,4 +69,6 @@ const LogIn = () => {
   )
 }
 
-export default LogIn;
+LogIn.propTypes = {
+  setToken: PropTypes.func.isRequired
+}

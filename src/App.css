@@ -6,8 +6,6 @@ body {
   text-align: center;
 }
 
-.App-header {}
-
 .App-link {
   color: #61dafb;
 }
@@ -67,8 +65,8 @@ ul li a.active {
   /* background-color: lightblue; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -92,4 +90,11 @@ ul li a.active {
 
 .select-operator {
   border: none;
+}
+
+.login {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

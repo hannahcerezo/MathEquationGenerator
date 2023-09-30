@@ -1,31 +1,30 @@
 import React from "react";
 import { useState } from 'react';
 import SelectOperator from './SelectOperator';
-import Equation from './Equation';
 import UserAnswer from './UserAnswer';
 import DisplayEquation from "./DisplayEquation";
 import Points from "./Points";
 
 const AddAndSub = () => {
 
+  const EASY = 11;
+  const MEDIUM = 50;
+  const HARD = 100;
   const [operator, setOperator] = useState('+');
   const [show, setShow] = useState(false);
-  const [eqVals, setEqVals] = useState({ firstVal: Math.floor(Math.random() * 100), secondVal: Math.floor(Math.random() * 100) });
+  const [eqVals, setEqVals] = useState({ firstVal: Math.floor(Math.random() * MEDIUM), secondVal: Math.floor(Math.random() * MEDIUM) });
   const [userAns, setUserAns] = useState();
   const [points, setPoints] = useState(0);
 
   // high score
   let currHighScoreAS = localStorage.getItem('highScoreAS') || 0;
   const [highScore, setHighScore] = useState(Number(currHighScoreAS));
-
   localStorage.setItem('currentPointsAS', points.toString());
   let current = Number(localStorage.getItem('currentPointsAS'));
-
   if (current > highScore) {
     setHighScore(current);
     localStorage.setItem('highScoreAS', current.toString());
   }
-
 
   const handleStart = () => {
     setShow(true);
@@ -33,7 +32,6 @@ const AddAndSub = () => {
   }
 
   const handleEnter = () => {
-
     let tempEqAns;
 
     if (operator === '+') {
@@ -43,21 +41,15 @@ const AddAndSub = () => {
     }
 
     if (tempEqAns === userAns) {
-
       setPoints(points + 1);
-      setEqVals({ firstVal: Math.floor(Math.random() * 100), secondVal: Math.floor(Math.random() * 100) });
+      setEqVals({ firstVal: Math.floor(Math.random() * MEDIUM), secondVal: Math.floor(Math.random() * MEDIUM) });
       document.body.style.backgroundColor = 'green';
-
     } else if (tempEqAns !== userAns) {
-
       setPoints(0);
       document.body.style.backgroundColor = 'red';
-
     }
-
     setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
     document.querySelector('.user-answer-input').value = '';
-
   }
 
   return (
