@@ -7,9 +7,16 @@ const UserAnswer = (props) => {
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
-    let input = Number(e.target.value);
+    let input = e.target.value;
 
-    props.setUserAns(input);
+    let numInput;
+    if (input === ' ') {
+      alert('Please input an answer');
+    } else {
+      numInput = Number(input);
+    }
+
+    props.setUserAns(numInput);
 
   }
 

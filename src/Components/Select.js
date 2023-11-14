@@ -11,7 +11,7 @@ const Select = () => {
       <div className="menu">
         <ul>
           <li>
-            <NavLink to="/add-and-sub">Addition and Subtraction</NavLink>
+            <NavLink to="/select-level">Addition and Subtraction</NavLink>
           </li>
           <li>
             <NavLink to="/multiply">Multiplication</NavLink>

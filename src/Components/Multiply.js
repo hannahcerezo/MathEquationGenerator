@@ -7,8 +7,8 @@ import Points from "./Points";
 const Multiply = () => {
 
   const EASY = 11;
-  const MEDIUM = 50;
-  const HARD = 100;
+  const MEDIUM = 51;
+  const HARD = 101;
   const [mEqVals, setMEqVals] = useState({ firstVal: Math.floor(Math.random() * EASY), secondVal: Math.floor(Math.random() * EASY) });
   const [userAns, setUserAns] = useState();
   const [points, setPoints] = useState(0);

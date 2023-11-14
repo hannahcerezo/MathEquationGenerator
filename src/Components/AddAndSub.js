@@ -4,15 +4,31 @@ import SelectOperator from './SelectOperator';
 import UserAnswer from './UserAnswer';
 import DisplayEquation from "./DisplayEquation";
 import Points from "./Points";
+import { useLocation } from "react-router-dom";
+import { EASY } from "../Config";
+import { MEDIUM } from "../Config";
+import { HARD } from "../Config";
 
 const AddAndSub = () => {
 
-  const EASY = 11;
-  const MEDIUM = 50;
-  const HARD = 100;
+  const location = useLocation();
+  const { level } = location.state;
+
+  let endRange;
+
+  if (level === "EASY") {
+    endRange = EASY;
+  }
+  if (level === "MEDIUM") {
+    endRange = MEDIUM;
+  }
+  if (level === "HARD") {
+    endRange = HARD;
+  }
+
   const [operator, setOperator] = useState('+');
   const [show, setShow] = useState(false);
-  const [eqVals, setEqVals] = useState({ firstVal: Math.floor(Math.random() * MEDIUM), secondVal: Math.floor(Math.random() * MEDIUM) });
+  const [eqVals, setEqVals] = useState({ firstVal: Math.floor(Math.random() * endRange), secondVal: Math.floor(Math.random() * endRange) });
   const [userAns, setUserAns] = useState();
   const [points, setPoints] = useState(0);
 
@@ -40,14 +56,18 @@ const AddAndSub = () => {
       tempEqAns = eqVals.firstVal - eqVals.secondVal;
     }
 
-    if (tempEqAns === userAns) {
+    if (userAns === '') {
+      // Don't do anything
+      alert('Please input an answer');
+    } else if (tempEqAns === userAns) {
       setPoints(points + 1);
-      setEqVals({ firstVal: Math.floor(Math.random() * MEDIUM), secondVal: Math.floor(Math.random() * MEDIUM) });
+      setEqVals({ firstVal: Math.floor(Math.random() * endRange), secondVal: Math.floor(Math.random() * endRange) });
       document.body.style.backgroundColor = 'green';
     } else if (tempEqAns !== userAns) {
       setPoints(0);
       document.body.style.backgroundColor = 'red';
     }
+
     setTimeout((() => document.body.style.backgroundColor = '#282c34'), 2000);
     document.querySelector('.user-answer-input').value = '';
   }
