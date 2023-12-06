@@ -14,18 +14,9 @@ const AddAndSub = () => {
   const location = useLocation();
   const { level } = location.state;
 
-  let endRange;
+  let endRange = level;
 
-  if (level === "EASY") {
-    endRange = EASY;
-  }
-  if (level === "MEDIUM") {
-    endRange = MEDIUM;
-  }
-  if (level === "HARD") {
-    endRange = HARD;
-  }
-
+  // state hooks
   const [operator, setOperator] = useState('+');
   const [show, setShow] = useState(false);
   const [eqVals, setEqVals] = useState({ firstVal: Math.floor(Math.random() * endRange), secondVal: Math.floor(Math.random() * endRange) });

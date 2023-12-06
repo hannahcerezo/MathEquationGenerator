@@ -9,8 +9,6 @@ import Multiply from './Components/Multiply';
 import LogIn from './Components/LogIn';
 import useToken from './Components/useToken';
 import Select from './Components/Select';
-import Test from './Components/Test';
-import { initialFacts } from './Components/testfacts';
 import SelectLevel from './Components/SelectLevel';
 
 function App() {
@@ -20,8 +18,6 @@ function App() {
   // if (!token) {
   //   return <LogIn setToken={setToken} />
   // }
-
-  const [facts, setFacts] = useState(initialFacts);
 
   return (
     <div className="App">

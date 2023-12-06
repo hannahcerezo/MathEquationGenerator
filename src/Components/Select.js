@@ -1,20 +1,19 @@
 import React from "react";
-import AddAndSub from "./AddAndSub";
-import Multiply from "./Multiply";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ADDANDSUB } from "../Config";
+import { MULTIPLY } from "../Config";
 
 const Select = () => {
-
 
   return (
     <>
       <div className="menu">
         <ul>
           <li>
-            <NavLink to="/select-level">Addition and Subtraction</NavLink>
+            <Link to="/select-level" state={{ operation: ADDANDSUB }}>Addition and Subtraction</Link>
           </li>
           <li>
-            <NavLink to="/multiply">Multiplication</NavLink>
+            <Link to="/select-level" state={{ operation: MULTIPLY }}>Multiplication</Link>
           </li>
         </ul>
       </div>

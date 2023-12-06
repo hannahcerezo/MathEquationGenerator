@@ -1,5 +1,6 @@
 body {
   background-color: #282c34;
+  color: rgb(117, 117, 117);
 }
 
 .App {
@@ -54,11 +55,11 @@ ul li a {
 }
 
 ul li a {
-  color: white;
+  color: rgb(106, 105, 105);
 }
 
 ul li a.active {
-  color: white;
+  color: rgb(106, 105, 105);
 }
 
 .navigation {
@@ -68,7 +69,7 @@ ul li a.active {
   align-items: left;
   justify-content: left;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(164, 164, 164);
 }
 
 .points {

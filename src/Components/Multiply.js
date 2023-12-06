@@ -1,15 +1,22 @@
 import React from "react";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import DisplayEquation from "./DisplayEquation";
 import UserAnswer from "./UserAnswer";
 import Points from "./Points";
+import { EASY } from "../Config";
+import { MEDIUM } from "../Config";
+import { HARD } from "../Config";
 
-const Multiply = () => {
+const Multiply = (props) => {
 
-  const EASY = 11;
-  const MEDIUM = 51;
-  const HARD = 101;
-  const [mEqVals, setMEqVals] = useState({ firstVal: Math.floor(Math.random() * EASY), secondVal: Math.floor(Math.random() * EASY) });
+  const location = useLocation();
+  const { level } = location.state;
+
+  let endRange = level;
+
+  // state hooks
+  const [mEqVals, setMEqVals] = useState({ firstVal: Math.floor(Math.random() * endRange), secondVal: Math.floor(Math.random() * endRange) });
   const [userAns, setUserAns] = useState();
   const [points, setPoints] = useState(0);
 
@@ -27,7 +34,7 @@ const Multiply = () => {
     let mTempEqAns = mEqVals.firstVal * mEqVals.secondVal;
     if (mTempEqAns === userAns) {
       setPoints(points + 1);
-      setMEqVals({ firstVal: Math.floor(Math.random() * EASY), secondVal: Math.floor(Math.random() * EASY) });
+      setMEqVals({ firstVal: Math.floor(Math.random() * endRange), secondVal: Math.floor(Math.random() * endRange) });
       document.body.style.backgroundColor = 'green';
     } else {
       setPoints(0);
