@@ -63,11 +63,21 @@ ul li a.active {
 }
 
 .navigation {
-  /* background-color: lightblue; */
+  background-color: lightblue;
   display: flex;
   flex-direction: column;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(164, 164, 164);
+}
+
+.home {
+  background-color: lightpink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(164, 164, 164);
 }

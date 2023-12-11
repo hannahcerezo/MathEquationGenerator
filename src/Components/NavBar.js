@@ -6,17 +6,7 @@ const NavBar = () => {
   return (
     <div className="navigation">
       <nav>
-        <ul>
-          <li>
-            <NavLink to="/MathEquationGenerator">Home</NavLink>
-          </li>
-          {/* <li>
-            <NavLink to="/add-and-sub">Addition and Subtraction</NavLink>
-          </li>
-          <li>
-            <NavLink to="/multiply">Multiplication</NavLink>
-          </li> */}
-        </ul>
+        <NavLink to="/MathEquationGenerator">Home</NavLink>
       </nav>
     </div>
   )
