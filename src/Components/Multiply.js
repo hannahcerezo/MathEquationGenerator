@@ -45,23 +45,19 @@ const Multiply = (props) => {
   }
 
   return (
-    <>
-      <div className="mult">
-        <div className="eq-generator">
-          <div className="level-select">
-            {/* <button>Easy</button><button>Medium</button><button>Hard</button> */}
-          </div>
-          <Points current={points} highScore={highScore} />
-          <div className="equation">
-            <DisplayEquation firstVal={mEqVals.firstVal} secondVal={mEqVals.secondVal} operator={'*'} />
-          </div>
-          <div className="input">
-            <UserAnswer setUserAns={setUserAns} />
-          </div>
-          <button className="btn" onClick={handleEnter}>Enter</button>
+    <div className="mult">
+      <div className="eq-generator">
+        <Points current={points} highScore={highScore} />
+        <div className="equation">
+          <DisplayEquation firstVal={mEqVals.firstVal} secondVal={mEqVals.secondVal} operator={'*'} />
         </div>
       </div>
-    </>
+      <div className="input">
+        <UserAnswer setUserAns={setUserAns} />
+      </div>
+      <button className="btn" onClick={handleEnter}>Enter</button>
+    </div>
+
   )
 
 }

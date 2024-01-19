@@ -7,16 +7,17 @@ const Select = () => {
 
   return (
     <>
-      <div className="menu">
-        <ul>
-          <li>
-            <Link to="/select-level" state={{ operation: ADDANDSUB }}>Addition and Subtraction</Link>
+      <label>Select operation:</label>
+      <ul>
+        <li>
+          <Link to="/select-level" state={{ operation: ADDANDSUB }} style={{ textDecoration: 'none' }}>Addition and Subtraction</Link>
           </li>
-          <li>
-            <Link to="/select-level" state={{ operation: MULTIPLY }}>Multiplication</Link>
+
+        <li>
+          <Link to="/select-level" state={{ operation: MULTIPLY }} style={{ textDecoration: 'none' }}>Multiplication</Link>
           </li>
-        </ul>
-      </div>
+
+      </ul>
     </>
   );
 }

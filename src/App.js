@@ -30,8 +30,6 @@ function App() {
         <Route path="/select-level" element={<SelectLevel />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
-
-      {/* <Test facts={facts} /> */}
     </div>
   );
 
