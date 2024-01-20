@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <div className="navigation">
       <nav>
-        <NavLink to="/MathEquationGenerator">Home</NavLink>
+        <NavLink to="/MathEquationGenerator" style={{ textDecoration: 'none' }}>Home</NavLink>
       </nav>
     </div>
   )

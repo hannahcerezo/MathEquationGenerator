@@ -11,11 +11,11 @@ const Select = () => {
       <ul>
         <li>
           <Link to="/select-level" state={{ operation: ADDANDSUB }} style={{ textDecoration: 'none' }}>Addition and Subtraction</Link>
-          </li>
+        </li>
 
         <li>
           <Link to="/select-level" state={{ operation: MULTIPLY }} style={{ textDecoration: 'none' }}>Multiplication</Link>
-          </li>
+        </li>
 
       </ul>
     </>

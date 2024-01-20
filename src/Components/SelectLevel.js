@@ -15,17 +15,16 @@ const SelectLevel = () => {
 
   return (
     <>
-
       <label>Select your range:</label>
       <ul>
         <li>
-          <Link to={linkTo} state={{ level: EASY }}>0-10</Link>
+          <Link to={linkTo} state={{ level: EASY }} style={{ textDecoration: 'none' }}>0-10</Link>
         </li>
         <li>
-          <Link to={linkTo} state={{ level: MEDIUM }}>0-50</Link>
+          <Link to={linkTo} state={{ level: MEDIUM }} style={{ textDecoration: 'none' }}>0-50</Link>
         </li>
         <li>
-          <Link to={linkTo} state={{ level: HARD }}>0-100</Link>
+          <Link to={linkTo} state={{ level: HARD }} style={{ textDecoration: 'none' }}>0-100</Link>
         </li>
       </ul>
     </>
