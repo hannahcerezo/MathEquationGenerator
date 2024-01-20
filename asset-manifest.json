@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/MathEquationGenerator/static/css/main.883f9faa.css",
-    "main.js": "/MathEquationGenerator/static/js/main.72371856.js",
+    "main.css": "/MathEquationGenerator/static/css/main.7e6f449e.css",
+    "main.js": "/MathEquationGenerator/static/js/main.e6bc3225.js",
     "index.html": "/MathEquationGenerator/index.html",
-    "main.883f9faa.css.map": "/MathEquationGenerator/static/css/main.883f9faa.css.map",
-    "main.72371856.js.map": "/MathEquationGenerator/static/js/main.72371856.js.map"
+    "main.7e6f449e.css.map": "/MathEquationGenerator/static/css/main.7e6f449e.css.map",
+    "main.e6bc3225.js.map": "/MathEquationGenerator/static/js/main.e6bc3225.js.map"
   },
   "entrypoints": [
-    "static/css/main.883f9faa.css",
-    "static/js/main.72371856.js"
+    "static/css/main.7e6f449e.css",
+    "static/js/main.e6bc3225.js"
   ]
 }
